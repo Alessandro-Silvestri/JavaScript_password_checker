@@ -11,14 +11,14 @@ let see1 = document.getElementById("see1");
 let see2 = document.getElementById("see2");
 let buttonCheckPassword = document.getElementById("buttonCheckPassword");
 // see button behavior (changing the "type" attribute: password/text)
-see1.addEventListener("focusin", () => {
+see1.addEventListener("click", () => {
     pass1.attributes[1].value = "text";
 })
 see1.addEventListener("focusout", () => {
     pass1.attributes[1].value = "password";
 })
 
-see2.addEventListener("focusin", () => {
+see2.addEventListener("click", () => {
     pass2.attributes[1].value = "text";
 })
 see2.addEventListener("focusout", () => {
@@ -26,7 +26,7 @@ see2.addEventListener("focusout", () => {
 })
 
 // for debugging
-let pass = "AAAAAa";
+
 
 // logic
 function IsMore12(pass) {
@@ -84,11 +84,12 @@ function isSpaceInside(pass)
 
 
 buttonCheckPassword.addEventListener("click", () => {
-    if (pass1.value === pass2.value) {
-        alert("OK!");
+    let pw1 = pass1.value;
+    let pw2 = pass2.value;
+    if(!IsMore12(pw1)){
+        alert("pw less than 12 chars")
     }
-    else {
-        alert("Wrong password");
-    }
+    else if (pw1)
+    {}
 })
 
