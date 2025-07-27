@@ -5,12 +5,20 @@
 // no spaces inside 
 // see password function
 
+// objects
 let pass1 = document.getElementById("pass1");
 let pass2 = document.getElementById("pass2");
 let see1 = document.getElementById("see1");
 let see2 = document.getElementById("see2");
+let requirements = document.getElementsByClassName("requirements");
 let buttonCheckPassword = document.getElementById("buttonCheckPassword");
-// see button behavior (changing the "type" attribute: password/text)
+
+// all the requirements in red
+for (let i = 0; i < requirements.length; i++) {
+    console.log(requirements[i].style.color = "red");
+}
+
+// "see" button behavior (changing the "type" attribute: password/text)
 see1.addEventListener("click", () => {
     pass1.attributes[1].value = "text";
 })
@@ -25,10 +33,8 @@ see2.addEventListener("focusout", () => {
     pass2.attributes[1].value = "password";
 })
 
-// for debugging
 
-
-// logic
+// behaviors: every requirement is solved as a function
 function IsMore12(pass) {
     return pass.length >= 12;
 }
@@ -76,8 +82,7 @@ function isDigitInside(pass) {
     return isDigit;
 }
 
-function isSpaceInside(pass)
-{
+function isSpaceInside(pass) {
     return pass.includes(" ");
 }
 
@@ -86,10 +91,12 @@ function isSpaceInside(pass)
 buttonCheckPassword.addEventListener("click", () => {
     let pw1 = pass1.value;
     let pw2 = pass2.value;
-    if(!IsMore12(pw1)){
-        alert("pw less than 12 chars")
+    if (IsMore12(pw1)) {
+        requirements[0].style.color = "green";
     }
-    else if (pw1)
-    {}
+    else {
+        requirements[0].style.color = "red";
+
+    }
 })
 
