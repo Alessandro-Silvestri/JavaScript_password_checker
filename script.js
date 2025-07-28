@@ -1,5 +1,4 @@
 // BUGS:
-// empty fields
 
 // objects
 let pass1 = document.getElementById("pass1");
@@ -62,6 +61,8 @@ function isSpecialCharInside(pass) {
     }
     let isSpecial = false;
     for (let char of pass) {
+        if(char === " ")
+            continue;
         if (isSpecialChar(char)) {
             isSpecial = true;
             break;
@@ -73,6 +74,8 @@ function isSpecialCharInside(pass) {
 function isDigitInside(pass) {
     let isDigit = false;
     for (let char of pass) {
+        if(char === " ")
+            continue;
         // if the character is a number
         if (!isNaN(Number(char))) {
             isDigit = true;
@@ -104,6 +107,8 @@ function checkAllGreen() {
 buttonCheckPassword.addEventListener("click", () => {
     let pw1 = pass1.value;
     let pw2 = pass2.value;
+    if(pw1 === "" && pw2 === "")
+        return;
     if (IsMore12(pw1))
         requirements[0].style.color = "green";
     else
