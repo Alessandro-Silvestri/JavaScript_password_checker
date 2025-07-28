@@ -1,4 +1,8 @@
-// BUGS:
+/*
+    JavaScript: Password checker
+    Author: Alessandro Silvestri <alessandro.silvestri.work@gmail.com>
+    2025
+*/
 
 // objects
 let pass1 = document.getElementById("pass1");
